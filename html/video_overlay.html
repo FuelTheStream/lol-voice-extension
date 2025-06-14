@@ -1,137 +1,15 @@
-const categories = ['taunt', 'joke', 'laugh', 'death', 'attack', 'move', 'kill', 'cast'];
-const R2_BASE_URL = "https://your-r2-domain.com/voice-lines"; // Replace with your actual R2 URL
-
-const clickSound = new Audio("../assets/click.mp3");
-
-const searchInput = document.getElementById('search');
-const champList = document.getElementById('champion-list');
-const categoryContainer = document.getElementById('category-container');
-const voiceLineContainer = document.getElementById('voice-line-container');
-
-let champions = [];
-
-function playClick() {
-  clickSound.currentTime = 0;
-  clickSound.play();
-}
-
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-function createChampionButton(champion) {
-  const wrapper = document.createElement('div');
-  wrapper.className = 'champion-wrapper';
-
-  const img = document.createElement('img');
-  img.src = `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${capitalize(champion)}_0.jpg`;
-  img.alt = champion;
-  img.className = 'champion-img';
-
-  const btn = document.createElement('button');
-  btn.textContent = capitalize(champion);
-  btn.onclick = () => {
-    playClick();
-    showCategories(champion);
-  };
-
-  wrapper.appendChild(img);
-  wrapper.appendChild(btn);
-  return wrapper;
-}
-
-function renderChampionList(filter = '') {
-  champList.innerHTML = '';
-  const filtered = champions.filter(name => name.includes(filter.toLowerCase()));
-  filtered.forEach(champ => champList.appendChild(createChampionButton(champ)));
-}
-
-function showCategories(champion) {
-  categoryContainer.classList.remove('hidden');
-  voiceLineContainer.classList.add('hidden');
-  categoryContainer.innerHTML = '';
-
-  categories.forEach(cat => {
-    const btn = document.createElement('button');
-    btn.textContent = capitalize(cat);
-    btn.onclick = () => {
-      playClick();
-      loadVoiceLines(champion, cat);
-    };
-    categoryContainer.appendChild(btn);
-  });
-}
-
-function loadVoiceLines(champion, category) {
-  voiceLineContainer.classList.remove('hidden');
-  voiceLineContainer.innerHTML = '';
-
-  for (let i = 1; i <= 5; i++) {
-    const url = `${R2_BASE_URL}/${champion}/${category}${i}.mp3`;
-    const audio = new Audio(url);
-
-    audio.onerror = () => {
-      if (i === 1) {
-        const fallbackUrl = `${R2_BASE_URL}/${champion}/${category}.mp3`;
-        const fallbackAudio = new Audio(fallbackUrl);
-        fallbackAudio.onerror = null;
-
-        const btn = createVoiceButton(fallbackUrl, `${capitalize(category)}`);
-        voiceLineContainer.appendChild(btn);
-      }
-    };
-
-    audio.oncanplaythrough = () => {
-      const btn = createVoiceButton(url, `${capitalize(category)} ${i}`);
-      voiceLineContainer.appendChild(btn);
-    };
-  }
-}
-
-function createVoiceButton(src, label) {
-  const btn = document.createElement('button');
-  btn.textContent = label;
-  btn.onclick = () => {
-    playClick();
-    const audio = new Audio(src);
-    audio.play();
-  };
-  return btn;
-}
-
-// 🧠 Dynamically fetch the full champion list
-async function fetchChampions() {
-  try {
-    const res = await fetch("https://ddragon.leagueoflegends.com/cdn/14.11.1/data/en_US/champion.json");
-    const data = await res.json();
-    champions = Object.keys(data.data).map(name => name.toLowerCase()).sort();
-    renderChampionList();
-  } catch (e) {
-    console.error("❌ Failed to fetch champions:", e);
-  }
-}
-
-// 🔍 Live filter as viewer types
-searchInput.addEventListener('input', () => {
-  renderChampionList(searchInput.value);
-});
-
-// 🟣 Twitch PubSub: Listen for redemptions
-Twitch.ext.onAuthorized(function (auth) {
-  Twitch.ext.listen('broadcast', function (target, contentType, message) {
-    try {
-      const { champion, category } = JSON.parse(message);
-      if (champion && category) {
-        showCategories(champion);
-        loadVoiceLines(champion, category);
-      }
-    } catch (e) {
-      console.error("❌ PubSub error:", e);
-    }
-  });
-});
-
-// 🚀 Load champions after DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-  fetchChampions();
-});
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>LoL Voice Overlay</title>
+  <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div id="overlay">
+    <!-- This overlay is invisible; it just listens and plays audio -->
+  </div>
+  <script type="module" src="./js/overlay.js"></script>
+</body>
+</html>

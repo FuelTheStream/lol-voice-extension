@@ -1,19 +1,21 @@
 {
   "manifest_version": 1,
-  "type": "video_overlay",
-  "extension_id": "lol-voice-lines",
-  "version": "0.0.2",
-  "author_name": "YourName",
-  "name": { "en": "LoL Champion Voice Lines" },
-  "description": "Trigger League voice lines using Channel Points.",
-  "support_email": "your@email.com",
-  "allowlisted_urls": [
-    "https://your-r2-bucket.r2.dev",
-    "https://your-extension-host.com"
-  ],
-  "hosted_test": {
-    "viewer_url": "https://your-extension-host.com/html/video_overlay.html"
-  },
-  "bits_enabled": false,
-  "subscriptions_support_level": "none"
+  "version": "0.0.1",
+  "platforms": {
+    "web": {
+      "panel": {
+        "viewer_url": "https://lol-voice-extension.pages.dev/panel.html",
+        "width": 400,
+        "height": 300
+      },
+      "config": {
+        "viewer_url": "https://lol-voice-extension.pages.dev/config.html",
+        "width": 400,
+        "height": 200
+      },
+      "video_overlay": {
+        "viewer_url": "https://lol-voice-extension.pages.dev/video_overlay.html"
+      }
+    }
+  }
 }

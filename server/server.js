@@ -1,78 +1,80 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import crypto from 'crypto';
-import axios from 'axios';
-import bodyParser from 'body-parser';
+require('dotenv').config();
+const express = require('express');
+const bodyParser = require('body-parser');
+const crypto = require('crypto');
+const axios = require('axios');
 
-dotenv.config();
+const {
+  PORT = 3000,
+  TWITCH_CLIENT_ID,
+  TWITCH_CLIENT_SECRET,
+  TWITCH_EVENTSUB_SECRET,
+  TWITCH_EXTENSION_ID
+} = process.env;
 
 const app = express();
-const PORT = 8080;
+app.use(bodyParser.json({
+  verify: (req, res, buf) => { req.rawBody = buf; }
+}));
 
-app.use(bodyParser.json());
-
-// Verify Twitch EventSub signature
 function verifySignature(req) {
-  const messageId = req.header('Twitch-Eventsub-Message-Id');
-  const timestamp = req.header('Twitch-Eventsub-Message-Timestamp');
-  const signature = req.header('Twitch-Eventsub-Message-Signature');
-  const secret = process.env.TWITCH_WEBHOOK_SECRET;
-
-  const message = messageId + timestamp + JSON.stringify(req.body);
-  const hmac = crypto.createHmac('sha256', secret).update(message).digest('hex');
-  const expectedSignature = `sha256=${hmac}`;
-
-  return signature === expectedSignature;
+  const id = req.get('Twitch-Eventsub-Message-Id');
+  const ts = req.get('Twitch-Eventsub-Message-Timestamp');
+  const sig = req.get('Twitch-Eventsub-Message-Signature');
+  const hmac = crypto.createHmac('sha256', TWITCH_EVENTSUB_SECRET)
+    .update(id + ts + req.rawBody)
+    .digest('hex');
+  return sig === `sha256=${hmac}`;
 }
 
-app.post('/webhook', async (req, res) => {
-  if (!verifySignature(req)) return res.status(403).send('Forbidden');
+app.post('/eventsub', async (req, res) => {
+  if (!verifySignature(req)) return res.status(403).send('Invalid signature');
 
-  const messageType = req.header('Twitch-Eventsub-Message-Type');
-
-  if (messageType === 'webhook_callback_verification') {
+  const msgType = req.get('Twitch-Eventsub-Message-Type');
+  if (msgType === 'webhook_callback_verification') {
     return res.status(200).send(req.body.challenge);
   }
 
-  if (messageType === 'notification') {
-    const { broadcaster_user_id, user_input } = req.body.event;
+  if (msgType === 'notification' &&
+      req.body.subscription.type === 'channel.channel_points_custom_reward_redemption.add') {
 
-    if (user_input) {
-      const [champion, category] = user_input.trim().toLowerCase().split(/\s+/);
-      if (champion && category) {
-        await sendToPubSub(broadcaster_user_id, { champion, category });
+    const redemption = req.body.event;
+    // fetch app token
+    const tokenResp = await axios.post('https://id.twitch.tv/oauth2/token', null, {
+      params: {
+        client_id: TWITCH_CLIENT_ID,
+        client_secret: TWITCH_CLIENT_SECRET,
+        grant_type: 'client_credentials'
       }
-    }
+    });
+    const appToken = tokenResp.data.access_token;
 
-    return res.status(200).end();
-  }
-
-  return res.status(200).end();
-});
-
-async function sendToPubSub(channelId, payload) {
-  try {
+    // publish to extension PubSub
     await axios.post(
-      'https://api.twitch.tv/helix/extensions/pubsub',
+      `https://api.twitch.tv/extensions/message/${TWITCH_EXTENSION_ID}`,
       {
-        broadcaster_id: channelId,
-        message: JSON.stringify(payload),
-        target: ['broadcast']
+        content_type: 'application/json',
+        message: {
+          type: 'redemption',
+          rewardId: redemption.reward.id,
+          user: redemption.user.display_name
+        },
+        targets: ['broadcast']
       },
       {
         headers: {
-          'Client-ID': process.env.TWITCH_CLIENT_ID,
-          Authorization: `Bearer ${process.env.TWITCH_APP_ACCESS_TOKEN}`,
-          'Content-Type': 'application/json'
+          'Client-Id': TWITCH_CLIENT_ID,
+          'Authorization': `Bearer ${appToken}`
         }
       }
     );
-    console.log(`✅ Sent PubSub: ${JSON.stringify(payload)}`);
-  } catch (err) {
-    console.error('❌ PubSub Error:', err.response?.data || err.message);
+
+    return res.status(200).send();
   }
-}
+
+  res.status(204).send();
+});
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server listening on port ${PORT}`);
+  console.log(`EventSub server listening on port ${PORT}`);
 });

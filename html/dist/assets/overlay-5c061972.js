@@ -1,0 +1,1 @@
+import"./style-e77b11b8.js";const r=window.Twitch.ext;document.addEventListener("DOMContentLoaded",()=>{const t=new Audio;r.listen("broadcast",(a,o,e)=>{if(o==="play"){const{url:c}=e;t.src=c,t.play().catch(n=>console.error("Playback error:",n))}})});

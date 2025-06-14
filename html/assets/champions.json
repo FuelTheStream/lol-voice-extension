@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ahri",
+    "name": "Ahri",
+    "categories": {
+      "taunt": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/taunt1.mp3",
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/taunt2.mp3"
+      ],
+      "laugh": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/laugh1.mp3"
+      ],
+      "death": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/death1.mp3"
+      ],
+      "move": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/move1.mp3",
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/move2.mp3"
+      ],
+      "kill": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/kill1.mp3"
+      ],
+      "attack": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/attack1.mp3"
+      ],
+      "joke": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/joke1.mp3"
+      ],
+      "ability": [
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/ability1.mp3",
+        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/ability2.mp3"
+      ]
+    }
+  }
+]

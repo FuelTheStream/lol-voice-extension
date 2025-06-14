@@ -1,0 +1,9 @@
+# Node
+node_modules/
+# Build outputs
+html/dist/
+# Env files
+.env
+*.env.local
+# VSCode
+.vscode/

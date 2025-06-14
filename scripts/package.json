@@ -1,0 +1,14 @@
+{
+  "name": "lol-voice-extension-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "upload-r2": "node upload_r2.js",
+    "manage-rewards": "node manage_rewards.js"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.1253.0",
+    "axios": "^1.4.0",
+    "dotenv": "^16.0.0"
+  }
+}
