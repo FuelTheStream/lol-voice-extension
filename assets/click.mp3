@@ -1,0 +1,1 @@
+new Audio('../assets/click.mp3').play()

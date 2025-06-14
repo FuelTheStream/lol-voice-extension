@@ -1,0 +1,20 @@
+{
+  "manifest_version": 1,
+  "type": "video_overlay",
+  "extension_id": "lol-voice-lines",
+  "version": "0.0.1",
+  "author_name": "YourName",
+  "description": "Viewers trigger League of Legends champion voice lines via Twitch Channel Points.",
+  "name": {
+    "en": "LoL Champion Voice Lines"
+  },
+  "support_email": "your@email.com",
+  "allowlisted_urls": [
+    "https://your-cdn-domain.com"
+  ],
+  "hosted_test": {
+    "viewer_url": "https://your-cdn-domain.com/html/video_overlay.html"
+  },
+  "bits_enabled": false,
+  "subscriptions_support_level": "none"
+}
