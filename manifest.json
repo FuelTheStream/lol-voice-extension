@@ -1,21 +1,23 @@
 {
-  "manifest_version": 1,
-  "version": "0.0.1",
-  "platforms": {
-    "web": {
-      "panel": {
-        "viewer_url": "https://lol-voice-extension.pages.dev/panel.html",
-        "width": 400,
-        "height": 300
-      },
-      "config": {
-        "viewer_url": "https://lol-voice-extension.pages.dev/config.html",
-        "width": 400,
-        "height": 200
-      },
-      "video_overlay": {
-        "viewer_url": "https://lol-voice-extension.pages.dev/video_overlay.html"
-      }
-    }
-  }
+  "id": "ltsuidptd9besys9hieo6steyyvlpo",
+  "name": "League Of Legends Champions' Voice Lines Extension",
+  "version": "1.0.1",
+  "author_name": "FuelTheStream",
+  "description": "League of Legends Champion Voice Line Twitch Extension",
+  "panel": {
+    "viewerPath": "index.html",
+    "height": 300,
+    "canLinkExternal": false
+  },
+  "config": {
+    "viewerPath": "config.html"
+  },
+  "video_component": {
+    "viewerPath": "video_overlay.html",
+    "aspectWidth": 400,
+    "aspectHeight": 300
+  },
+  "whitelisted_domains": [
+    "lol-voice-extension-server.onrender.com"
+  ]
 }

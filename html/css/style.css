@@ -1,25 +1,73 @@
+/* General Body Styles */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+  background-color: #000000; /* Black background */
+  color: #FFFFFF; /* White text for general readability */
+  font-family: 'Changa', sans-serif;
+  margin: 15px;
+  box-sizing: border-box;
 }
 
-#app, #config-app {
-  padding: 1rem;
+h1 {
+  color: #FFA500; /* Orange for main headers */
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
+/* Form and Control Styling */
 label {
   display: block;
-  margin-top: 0.5rem;
+  margin-bottom: 5px;
+  font-weight: 400;
 }
 
-select, input {
+select,
+input[type="number"],
+input[type="range"] {
   width: 100%;
-  padding: 0.5rem;
-  margin-top: 0.25rem;
+  padding: 8px;
+  margin-bottom: 15px;
+  background-color: #1a1a1a;
+  color: #FFFFFF;
+  border: 1px solid #333333;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 button {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
+  background-color: #FFA500; /* Orange buttons */
+  color: #000000; /* Black text on buttons */
+  border: none;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-family: 'Changa', sans-serif;
+  font-weight: 700;
   cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #ffb733; /* Lighter orange on hover */
+}
+
+button:disabled {
+  background-color: #555555;
+  color: #888888;
+  cursor: not-allowed;
+}
+
+/* Specific Containers */
+.controls, .volume-container {
+  padding: 15px;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#status, #config-status {
+  margin-top: 15px;
+  text-align: center;
+  color: #FFA500; /* Orange for status messages */
+  font-weight: 700;
 }

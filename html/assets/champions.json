@@ -1,35 +1,877 @@
-[
-  {
-    "id": "ahri",
+{
+  "266": {
+    "name": "Aatrox",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Come forward!" },
+      { "file": "laugh1.mp3", "label": "Haha run!" }
+    ]
+  },
+  "103": {
     "name": "Ahri",
-    "categories": {
-      "taunt": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/taunt1.mp3",
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/taunt2.mp3"
-      ],
-      "laugh": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/laugh1.mp3"
-      ],
-      "death": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/death1.mp3"
-      ],
-      "move": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/move1.mp3",
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/move2.mp3"
-      ],
-      "kill": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/kill1.mp3"
-      ],
-      "attack": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/attack1.mp3"
-      ],
-      "joke": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/joke1.mp3"
-      ],
-      "ability": [
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/ability1.mp3",
-        "https://my-r2-bucket.r2.cloudflarestorage.com/ahri/ability2.mp3"
-      ]
-    }
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's play!" },
+      { "file": "laugh1.mp3", "label": "Hehehe!" }
+    ]
+  },
+  "84": {
+    "name": "Akali",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "You can't escape me!" },
+      { "file": "laugh1.mp3", "label": "Hahaha!" }
+    ]
+  },
+  "166": {
+    "name": "Akshan",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Steady as I go." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "12": {
+    "name": "Alistar",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I'll crush you!" },
+      { "file": "laugh1.mp3", "label": "Woohoo!" }
+    ]
+  },
+  "32": {
+    "name": "Amumu",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Nobody loves me..." },
+      { "file": "laugh1.mp3", "label": "Hehehe." }
+    ]
+  },
+  "34": {
+    "name": "Anivia",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Freeze!" },
+      { "file": "laugh1.mp3", "label": "Chill out!" }
+    ]
+  },
+  "1": {
+    "name": "Annie",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's light it up!" },
+      { "file": "laugh1.mp3", "label": "Heehee!" }
+    ]
+  },
+  "523": {
+    "name": "Aphelios",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let the hunt begin." },
+      { "file": "laugh1.mp3", "label": "Ha." }
+    ]
+  },
+  "22": {
+    "name": "Ashe",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "For Freljord!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "136": {
+    "name": "Aurelion Sol",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I am the cosmos!" },
+      { "file": "laugh1.mp3", "label": "Haha, mortal!" }
+    ]
+  },
+  "268": {
+    "name": "Azir",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Rise, my soldiers!" },
+      { "file": "laugh1.mp3", "label": "Victory is near!" }
+    ]
+  },
+  "432": {
+    "name": "Bard",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The universe sings." },
+      { "file": "laugh1.mp3", "label": "Hehe." }
+    ]
+  },
+  "53": {
+    "name": "Blitzcrank",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Ready to serve!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "63": {
+    "name": "Brand",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Feel the burn!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "201": {
+    "name": "Braum",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The heart is the strongest muscle." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "51": {
+    "name": "Caitlyn",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "This town ain't big enough." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "164": {
+    "name": "Camille",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Precision in all things." },
+      { "file": "laugh1.mp3", "label": "Ha." }
+    ]
+  },
+  "69": {
+    "name": "Cassiopeia",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Strike swiftly." },
+      { "file": "laugh1.mp3", "label": "Hahaha!" }
+    ]
+  },
+  "31": {
+    "name": "Cho'Gath",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I will devour you!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "42": {
+    "name": "Corki",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "You can't hide from me!" },
+      { "file": "laugh1.mp3", "label": "Hehe!" }
+    ]
+  },
+  "122": {
+    "name": "Darius",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I will bury them!" },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "131": {
+    "name": "Diana",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Moonlight guides me." },
+      { "file": "laugh1.mp3", "label": "Heh." }
+    ]
+  },
+  "119": {
+    "name": "Draven",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Draven is here!" },
+      { "file": "laugh1.mp3", "label": "Haha!" }
+    ]
+  },
+  "36": {
+    "name": "Dr. Mundo",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Mundo goes where he pleases!" },
+      { "file": "laugh1.mp3", "label": "Hehehe!" }
+    ]
+  },
+  "245": {
+    "name": "Ekko",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Time to rewind!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "60": {
+    "name": "Elise",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Feel the spider's bite!" },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "28": {
+    "name": "Evelynn",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let me show you pain." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "81": {
+    "name": "Ezreal",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Ready for adventure!" },
+      { "file": "laugh1.mp3", "label": "Haha!" }
+    ]
+  },
+  "9": {
+    "name": "Fiddlesticks",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Fear the scarecrow!" },
+      { "file": "laugh1.mp3", "label": "Hehehe." }
+    ]
+  },
+  "114": {
+    "name": "Fiora",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let us dance." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "105": {
+    "name": "Fizz",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Watch this!" },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "3": {
+    "name": "Galio",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Fear not, citizens!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "41": {
+    "name": "Gangplank",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "No one escapes the ocean's wrath!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "86": {
+    "name": "Garen",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Demacia!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "150": {
+    "name": "Gnar",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Gnar gnar!" },
+      { "file": "laugh1.mp3", "label": "Hehe!" }
+    ]
+  },
+  "79": {
+    "name": "Gragas",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Who wants some?" },
+      { "file": "laugh1.mp3", "label": "Haha!" }
+    ]
+  },
+  "104": {
+    "name": "Graves",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Light 'em up!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "120": {
+    "name": "Hecarim",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I bring the apocalypse!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "74": {
+    "name": "Heimerdinger",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Genius at work!" },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "420": {
+    "name": "Illaoi",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Feel the Kraken's might!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "39": {
+    "name": "Irelia",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Balance must be preserved." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "427": {
+    "name": "Ivern",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's be friends!" },
+      { "file": "laugh1.mp3", "label": "Hehe!" }
+    ]
+  },
+  "40": {
+    "name": "Janna",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Feel the breeze!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "59": {
+    "name": "Jarvan IV",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "For Demacia!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "24": {
+    "name": "Jax",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's get ready to rumble!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "126": {
+    "name": "Jayce",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Forward, as one!" },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "202": {
+    "name": "Jhin",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Art requires a certain cruelty." },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "222": {
+    "name": "Jinx",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's get this party started!" },
+      { "file": "laugh1.mp3", "label": "Hehehe!" }
+    ]
+  },
+  "145": {
+    "name": "Kai'Sa",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's hunt." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "429": {
+    "name": "Kalista",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I am your spear of vengeance!" },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "43": {
+    "name": "Karma",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Balance guides me." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "30": {
+    "name": "Karthus",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Death is eternal." },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "38": {
+    "name": "Kassadin",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Void walking." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "55": {
+    "name": "Katarina",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let me show you pain." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "10": {
+    "name": "Kayle",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Justice will be served." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "141": {
+    "name": "Kayn",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The shadows will rise." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "85": {
+    "name": "Kennen",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Lightning strikes!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "121": {
+    "name": "Kha'Zix",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Evolution will find a way." },
+      { "file": "laugh1.mp3", "label": "Hehehe!" }
+    ]
+  },
+  "203": {
+    "name": "Kindred",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Embrace the cycle." },
+      { "file": "laugh1.mp3", "label": "Heh heh." }
+    ]
+  },
+  "240": {
+    "name": "Kled",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Get on my steed!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "96": {
+    "name": "Kog'Maw",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Ready to feast!" },
+      { "file": "laugh1.mp3", "label": "Hehe!" }
+    ]
+  },
+  "7": {
+    "name": "LeBlanc",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Trickery is my game." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "64": {
+    "name": "Lee Sin",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The blind monk sees all." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "89": {
+    "name": "Leona",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The sun always rises." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "127": {
+    "name": "Lissandra",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The frost will consume all." },
+      { "file": "laugh1.mp3", "label": "Heh." }
+    ]
+  },
+  "236": {
+    "name": "Lucian",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Justice is mine." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "117": {
+    "name": "Lulu",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's make some magic!" },
+      { "file": "laugh1.mp3", "label": "Heehee!" }
+    ]
+  },
+  "99": {
+    "name": "Lux",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Light will guide you." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "54": {
+    "name": "Malphite",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Rock solid." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "90": {
+    "name": "Malzahar",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The void calls." },
+      { "file": "laugh1.mp3", "label": "Heh heh." }
+    ]
+  },
+  "57": {
+    "name": "Maokai",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Nature is eternal." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "11": {
+    "name": "Master Yi",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The sword is my spirit." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "21": {
+    "name": "Miss Fortune",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Ready for a shot?" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "62": {
+    "name": "Wukong",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's get this started!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "82": {
+    "name": "Mordekaiser",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Your soul is mine." },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "25": {
+    "name": "Morgana",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The light is a lie." },
+      { "file": "laugh1.mp3", "label": "Heh." }
+    ]
+  },
+  "267": {
+    "name": "Nami",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let the waves guide you." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "75": {
+    "name": "Nasus",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The sands will rise." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "875": {
+    "name": "Sett",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's throw down!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "35": {
+    "name": "Shaco",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's have some fun!" },
+      { "file": "laugh1.mp3", "label": "Hehe!" }
+    ]
+  },
+  "98": {
+    "name": "Shen",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Balance will be preserved." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "102": {
+    "name": "Shyvana",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Feel the dragon's fire." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "27": {
+    "name": "Singed",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I will poison the world!" },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "14": {
+    "name": "Sion",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Death is only the beginning." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "15": {
+    "name": "Sivir",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I aim to misbehave." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "72": {
+    "name": "Skarner",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The crystal vengeance." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "37": {
+    "name": "Sona",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Music is the soul." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "16": {
+    "name": "Soraka",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The stars guide me." },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "50": {
+    "name": "Swain",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Power and control." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "517": {
+    "name": "Sylas",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Chains will bind you." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "134": {
+    "name": "Syndra",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Power overwhelms." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "223": {
+    "name": "Tahm Kench",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The river calls." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "163": {
+    "name": "Taliyah",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The earth moves for me." },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "91": {
+    "name": "Talon",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Silent but deadly." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "44": {
+    "name": "Taric",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The shield shines bright." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "17": {
+    "name": "Teemo",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Never underestimate me!" },
+      { "file": "laugh1.mp3", "label": "Heehee!" }
+    ]
+  },
+  "412": {
+    "name": "Thresh",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Come play with me." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "18": {
+    "name": "Tristana",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Boom! Headshot!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "48": {
+    "name": "Trundle",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I’m the troll king!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "23": {
+    "name": "Tryndamere",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I am the rage!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "4": {
+    "name": "Twisted Fate",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The cards are dealt." },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "29": {
+    "name": "Twitch",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Time to strike!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "77": {
+    "name": "Udyr",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Feel the beast within." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "6": {
+    "name": "Urgot",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Execution protocol engaged." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "110": {
+    "name": "Varus",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Justice rains from above." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "67": {
+    "name": "Vayne",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The night hunter is here." },
+      { "file": "laugh1.mp3", "label": "Heh heh!" }
+    ]
+  },
+  "45": {
+    "name": "Veigar",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Embrace the darkness!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
+  },
+  "161": {
+    "name": "Vel'Koz",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Knowledge through disintegration." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "254": {
+    "name": "Vi",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's get to work." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "112": {
+    "name": "Viktor",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The machine will rise." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "8": {
+    "name": "Vladimir",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Blood will flow." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "106": {
+    "name": "Volibear",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Thunder reigns!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "19": {
+    "name": "Warwick",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Hunting time." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "498": {
+    "name": "Xayah",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I’m the rebel." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "101": {
+    "name": "Xerath",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "I am the arcane." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "5": {
+    "name": "Xin Zhao",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The spear of Demacia." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "157": {
+    "name": "Yasuo",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The wind will guide me." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "83": {
+    "name": "Yorick",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "The grave calls." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "154": {
+    "name": "Zac",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Let's get stretchy!" },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "238": {
+    "name": "Zed",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Shadow is power." },
+      { "file": "laugh1.mp3", "label": "Ha!" }
+    ]
+  },
+  "115": {
+    "name": "Ziggs",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Boom! Boom! Boom!" },
+      { "file": "laugh1.mp3", "label": "Hehehe!" }
+    ]
+  },
+  "26": {
+    "name": "Zilean",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Time is an illusion." },
+      { "file": "laugh1.mp3", "label": "Ha ha!" }
+    ]
+  },
+  "142": {
+    "name": "Zoe",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Time to cause some mischief!" },
+      { "file": "laugh1.mp3", "label": "Heehee!" }
+    ]
+  },
+  "143": {
+    "name": "Zyra",
+    "lines": [
+      { "file": "taunt1.mp3", "label": "Feel the thorns!" },
+      { "file": "laugh1.mp3", "label": "Ha ha ha!" }
+    ]
   }
-]
+}

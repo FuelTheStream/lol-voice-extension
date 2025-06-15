@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LoL Champion Voice Lines Panel</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <h1>Choose your champion's voice line</h1>
+
+  <div class="controls">
+    <label for="champion-select">Champion:</label>
+    <select id="champion-select" name="champion">
+      <!-- options populated by panel.js -->
+    </select>
+
+    <label for="voice-line-select">Voice Line:</label>
+    <select id="voice-line-select" name="voiceLine" disabled>
+      <!-- populated based on champion -->
+    </select>
+
+    <button id="preview-button" disabled>Play Preview</button>
+    <button id="redeem-button" disabled>Redeem with Channel Points</button>
+  </div>
+
+  <div class="volume-container">
+    <label for="volume-range">Volume:</label>
+    <input id="volume-range" name="volume" type="range" min="0" max="1" step="0.01" value="0.5">
+  </div>
+
+  <div id="status"></div>
+
+  <script src="js/panel.js"></script>
+</body>
+</html>

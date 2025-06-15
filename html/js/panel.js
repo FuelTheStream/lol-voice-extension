@@ -1,72 +1,184 @@
-const twitch = window.Twitch.ext;
+// The absolute URL of your backend server on Render
+const backendUrl = 'https://lol-voice-extension-server.onrender.com';
 
-document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById('config-app')) {
-    // --- Config View Logic ---
-    const input = document.getElementById('reward-cost');
-    const saveBtn = document.getElementById('save-btn');
-    const status = document.getElementById('status');
+function capitalizeFirstLetter(string) {
+  if (!string) return '';
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-    twitch.onAuthorized(() => {
-      const config = twitch.configuration.broadcaster?.content;
-      if (config) {
-        try {
-          const parsed = JSON.parse(config);
-          if (parsed.rewardCost != null) {
-            input.value = parsed.rewardCost;
-          }
-        } catch {}
-      }
-    });
+function showStatus(message) {
+  const status = document.getElementById('status');
+  if (status) status.textContent = message;
+}
 
-    saveBtn.addEventListener('click', () => {
-      const cost = parseInt(input.value, 10) || 0;
-      const payload = JSON.stringify({ rewardCost: cost });
-      // version "1" of broadcaster config namespace
-      twitch.configuration.set('broadcaster', '1', payload);
-      status.textContent = 'Saved!';
-    });
+async function initializePanel(config = {}) {
+  const championSelect = document.getElementById('champion-select');
+  const voiceLineSelect = document.getElementById('voice-line-select');
+  const previewButton = document.getElementById('preview-button');
+  const redeemButton = document.getElementById('redeem-button');
+  const volumeRange = document.getElementById('volume-range');
 
-  } else {
-    // --- Panel View Logic ---
-    const champSel = document.getElementById('champion-select');
-    const catSel = document.getElementById('category-select');
-    const playBtn = document.getElementById('play-btn');
-    let champions = [];
+  if (!championSelect || !voiceLineSelect || !previewButton || !redeemButton) {
+    console.error('Missing required DOM elements');
+    showStatus('Error: Missing required elements.');
+    return;
+  }
 
-    fetch('./assets/champions.json')
-      .then(r => r.json())
-      .then(data => {
-        champions = data;
-        data.forEach(champ => {
-          const opt = document.createElement('option');
-          opt.value = champ.id;
-          opt.textContent = champ.name;
-          champSel.appendChild(opt);
-        });
-        updateCategories();
-      });
+  championSelect.disabled = true;
+  voiceLineSelect.disabled = true;
+  previewButton.disabled = true;
+  redeemButton.disabled = true;
+  if (volumeRange) volumeRange.disabled = true;
 
-    champSel.addEventListener('change', updateCategories);
+  showStatus('Loading champion data...');
 
-    function updateCategories() {
-      const chap = champions.find(c => c.id === champSel.value);
-      catSel.innerHTML = '';
-      Object.keys(chap.categories).forEach(cat => {
-        const o = document.createElement('option');
-        o.value = cat;
-        o.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-        catSel.appendChild(o);
-      });
+  let champions = {};
+  try {
+    // This fetch is correct because champions.json is hosted with the frontend
+    const response = await fetch('assets/champions.json');
+    if (!response.ok) throw new Error(`Failed to load champions.json: ${response.status}`);
+    champions = await response.json();
+  } catch (error) {
+    console.error(error);
+    showStatus('Error loading champion data.');
+    return;
+  }
+
+  const enabledChampions = config.enabledChampions ?? Object.keys(champions);
+
+  const fragment = document.createDocumentFragment();
+  const defaultOption = document.createElement('option');
+  defaultOption.value = '';
+  defaultOption.disabled = true;
+  defaultOption.selected = true;
+  defaultOption.textContent = 'Select a champion';
+  fragment.appendChild(defaultOption);
+
+  enabledChampions.forEach(champId => {
+    if (champions[champId]) {
+      const option = document.createElement('option');
+      option.value = champId;
+      option.textContent = capitalizeFirstLetter(champions[champId].name);
+      fragment.appendChild(option);
     }
+  });
 
-    playBtn.addEventListener('click', () => {
-      const champ = champions.find(c => c.id === champSel.value);
-      const cat = catSel.value;
-      const files = champ.categories[cat];
-      const choice = files[Math.floor(Math.random() * files.length)];
-      // files in JSON should be full URLs
-      twitch.send('broadcast', 'play', { url: choice });
+  championSelect.appendChild(fragment);
+  championSelect.disabled = false;
+  if (volumeRange) volumeRange.disabled = false;
+
+  championSelect.addEventListener('change', () => {
+    const selectedId = championSelect.value;
+    voiceLineSelect.innerHTML = '';
+    previewButton.disabled = true;
+    redeemButton.disabled = true;
+
+    if (selectedId && champions[selectedId]) {
+      const enabledVoiceLinesForChamp = config.enabledVoiceLines?.[selectedId] ?? [];
+
+      const lineFragment = document.createDocumentFragment();
+      const defaultLineOption = document.createElement('option');
+      defaultLineOption.value = '';
+      defaultLineOption.disabled = true;
+      defaultLineOption.selected = true;
+      defaultLineOption.textContent = 'Select a voice line';
+      lineFragment.appendChild(defaultLineOption);
+
+      champions[selectedId].lines.forEach(line => {
+        if (enabledVoiceLinesForChamp.length === 0 || enabledVoiceLinesForChamp.includes(line.file)) {
+          const option = document.createElement('option');
+          option.value = line.file;
+          option.textContent = line.label;
+          lineFragment.appendChild(option);
+        }
+      });
+
+      voiceLineSelect.appendChild(lineFragment);
+      voiceLineSelect.disabled = false;
+    } else {
+      voiceLineSelect.disabled = true;
+    }
+  });
+
+  voiceLineSelect.addEventListener('change', () => {
+    const valid = !!voiceLineSelect.value;
+    previewButton.disabled = !valid;
+    redeemButton.disabled = !valid;
+  });
+
+  const audioPlayer = new Audio();
+  audioPlayer.volume = volumeRange ? parseFloat(volumeRange.value) : 0.5;
+
+  if (volumeRange) {
+    volumeRange.addEventListener('input', () => {
+      audioPlayer.volume = parseFloat(volumeRange.value);
     });
   }
+
+  function getFullAudioUrl() {
+    const championId = championSelect.value;
+    // Assuming champion names in audio folder are lowercase
+    const championName = champions[championId]?.name.toLowerCase();
+    const voiceFile = voiceLineSelect.value;
+    if (!championName || !voiceFile) return null;
+    
+    // Construct the URL based on the required folder structure, pointing to the backend
+    return `${backendUrl}/audio/${championName}/${voiceFile}`;
+  }
+
+  previewButton.addEventListener('click', () => {
+    const fullUrl = getFullAudioUrl();
+    const champName = championSelect.options[championSelect.selectedIndex]?.text || '';
+    const voiceLabel = voiceLineSelect.options[voiceLineSelect.selectedIndex]?.text || '';
+    if (!fullUrl) return;
+
+    showStatus(`Previewing: ${champName}: ${voiceLabel}`);
+    audioPlayer.src = fullUrl;
+    audioPlayer.play().catch(error => {
+      console.error('Audio playback error:', error);
+      showStatus('Error playing audio.');
+    });
+  });
+
+  redeemButton.addEventListener('click', async () => {
+    const fullUrl = getFullAudioUrl();
+    const champName = championSelect.options[championSelect.selectedIndex]?.text || '';
+    const voiceLabel = voiceLineSelect.options[voiceLineSelect.selectedIndex]?.text || '';
+
+    if (!fullUrl) return;
+
+    showStatus('Redeeming Channel Points...');
+
+    try {
+      const response = await fetch(`${backendUrl}/api/redeem`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          champion: champName,
+          lineLabel: voiceLabel,
+          audioUrl: fullUrl
+        })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          showStatus('Redemption successful! Voice line will play on stream.');
+        } else {
+          showStatus(data.message || 'Redemption failed.');
+        }
+      } else {
+        showStatus('Redemption request failed.');
+      }
+    } catch (err) {
+      showStatus('Error contacting backend.');
+      console.error(err);
+    }
+  });
+
+  showStatus('Select a champion to begin.');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initializePanel({});
 });

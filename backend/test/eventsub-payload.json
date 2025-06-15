@@ -1,0 +1,14 @@
+{
+  "event": {
+    "id": "1234567890",
+    "user_id": "987654321",
+    "user_login": "testuser",
+    "user_name": "testuser",
+    "reward": {
+      "id": "reward-id",
+      "title": "garen",
+      "prompt": "Spin to Win!"
+    },
+    "user_input": "garen line1.mp3"
+  }
+}
